@@ -8,19 +8,22 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
+import java.util.Collections;
 
 /**
  *
  * @author bmcdb
- * 
- * the RankBiasedOverlap class can be used to calculate the Rank-Biased Overlap between different rankings. 
- * 
+ *
+ * the RankBiasedOverlap class can be used to calculate the Rank-Biased Overlap between different rankings.
+ *
  */
 public class RankBiasedOverlap {
-
+    
     public static void main(String[] args) throws FileNotFoundException, IOException{
-        String filename = "C:\\Users\\bmcdb\\Dropbox\\_Master algemeen\\17-18 Q4\\Capita selecta\\testrankings.csv";
-        BufferedReader br = new BufferedReader(new FileReader(filename));
+        
+        String Directory = "C:\\Users\\bmcdb\\Dropbox\\_Master algemeen\\17-18 Q4\\Capita selecta\\Logs and models\\Road traffic fine management80\\trace models\\";
+        String filename = "results trace models.csv";
+        BufferedReader br = new BufferedReader(new FileReader(Directory + filename));
         String line = "";
         String csvSplitBy = ",";
         
@@ -34,12 +37,23 @@ public class RankBiasedOverlap {
                 metricNr++;
                 models.add(new ArrayList<Model>());
             }
-            models.get(metricNr).add(new Model(model[1], model[0], Integer.parseInt(model[2])));            
+            models.get(metricNr).add(new Model(model[0], model[1], Double.parseDouble(model[2])));
         }
-
-        // do RBO
-        double[][] RBOvalues = new double[models.size()][models.size()];
+        
+        boolean bottomUpRanked = false; // determines whether ranking is optimistic or pessimistic
         double p = 0.5;
+        
+        // sort models and add rankings
+        for (ArrayList<Model> modelList: models){
+            Collections.sort(modelList);
+            RankModels(modelList, bottomUpRanked);
+//            for (Model m: modelList){
+//                m.printModel();
+//            }
+        }
+        
+        // do RBO for every combination
+        double[][] RBOvalues = new double[models.size()][models.size()];
         for (int i = 0; i < models.size(); i++){
             ArrayList<Model> metric1 = models.get(i);
             for (int j = 0; j < models.size(); j++){
@@ -48,9 +62,9 @@ public class RankBiasedOverlap {
             }
         }
         
-        DecimalFormat dm = new DecimalFormat("#.####"); 
-        File file = new File("C:\\Users\\bmcdb\\Dropbox\\_Master algemeen\\17-18 Q4\\Capita selecta\\RBOvalues.txt");
-        BufferedWriter writer = new BufferedWriter(new FileWriter(file));
+        DecimalFormat dm = new DecimalFormat("#.####");
+        File file = new File("RBOvalues.txt");
+        BufferedWriter writer = new BufferedWriter(new FileWriter(Directory + file));
         
         writer.write("RBOvalues\t");
         for (int i = 0; i < models.size(); i++){
@@ -61,22 +75,26 @@ public class RankBiasedOverlap {
             writer.newLine();
             writer.write(models.get(i).get(0).metric+"\t");
             for (int j =0; j<RBOvalues.length; j++){
+                if (i != j){
                 writer.write(dm.format(RBOvalues[i][j])+"\t");
-            }
+                } else {
+                    writer.write(" \t");
+                }            }
+
         }
-                
+        
         writer.close();
     }
-
+    
     
     /**
-     * @param ranking1 First ranking to compare, ArrayList of models 
+     * @param ranking1 First ranking to compare, ArrayList of models
      * @param ranking2 Second ranking to compare, ArrayList of models
      * @param p between 0 and 1, the value for p in the Rank Biased Overlap calculation.
      * @return Rank-Biased Overlap between the two rankings.
      */
-    public static double RBO(ArrayList<Model> ranking1, ArrayList<Model> ranking2, double p){        
-               
+    public static double RBO(ArrayList<Model> ranking1, ArrayList<Model> ranking2, double p){
+        
         // initialise temporary ArrayLists
         ArrayList<String> temp1 = new ArrayList<>();
         ArrayList<String> temp2 = new ArrayList<>();
@@ -88,7 +106,7 @@ public class RankBiasedOverlap {
         int maxDepth = Math.max(ranking1.size(), ranking2.size());
         
         //loop until both rankings are fully explored
-        while (i < maxDepth) { 
+        while (i < maxDepth) {
             int depth = i+1;
             
             // calculate the weight associated with the current depth
@@ -107,9 +125,13 @@ public class RankBiasedOverlap {
                 }
             }
             
+            double agreement;
             // find the agreement between the two rankings at the current depth.
-            double agreement = 2.0*intersection(temp1, temp2).size()/(temp1.size()+temp2.size());
-            
+            if (temp1.size()+temp2.size()>0){
+                agreement = 2.0*intersection(temp1, temp2).size()/(temp1.size()+temp2.size());
+            } else {
+                agreement = 0.0;
+            }
             // add the agreement multiplied by the weight of the current depth to the RBO value.
             RBO += depthWeight * agreement;
             i++;
@@ -118,7 +140,7 @@ public class RankBiasedOverlap {
 //        System.out.println("RBO: " + RBO);
 //        System.out.println("Sum of weights: " + w_dSum);
 //        System.out.println("Scaled RBO: " + RBO / w_dSum);
-        return RBO / totalWeight;
+    return RBO / totalWeight;
     }
     
     
@@ -133,9 +155,37 @@ public class RankBiasedOverlap {
             if(list2.contains(t)) {
                 list.add(t);
             }
-        }      
+        }
         return list;
     }
-
     
+    /**
+     * 
+     * @param models list of models to be ranked
+     * @param bottomUpRanked determines whether the ranking is pessimistic or optimistic
+     * bottomUpRanked == true: pessimistic ranking, ties are ranked at the lowest rank among them
+     * bottomUpRanked == false: optimistic ranking, ties are ranked at the highest rank among them
+     */
+    public static void RankModels(ArrayList<Model> models, boolean bottomUpRanked){
+        int i = 0;
+        int j = 0;
+        while (i < models.size()){
+            boolean equalValue = true;
+            while(equalValue){
+                if (j<models.size() && models.get(i).getValue()==models.get(j).getValue()){
+                    j++;
+                } else {
+                    equalValue = false;
+                    for (int k = i; k < j; k++){
+                        if (bottomUpRanked){
+                            models.get(k).setRank(j);
+                        } else {
+                            models.get(k).setRank(i+1);
+                        }
+                    }
+                    i = j;
+                }
+            }
+        }
+    }
 }
