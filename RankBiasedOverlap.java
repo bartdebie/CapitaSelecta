@@ -9,15 +9,12 @@ import java.io.IOException;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 /**
  *
  * @author bmcdb
+ * 
+ * the RankBiasedOverlap class can be used to calculate the Rank-Biased Overlap between different rankings. 
+ * 
  */
 public class RankBiasedOverlap {
 
@@ -42,7 +39,6 @@ public class RankBiasedOverlap {
 
         // do RBO
         double[][] RBOvalues = new double[models.size()][models.size()];
-        
         double p = 0.5;
         for (int i = 0; i < models.size(); i++){
             ArrayList<Model> metric1 = models.get(i);
@@ -72,44 +68,65 @@ public class RankBiasedOverlap {
         writer.close();
     }
 
+    
+    /**
+     * @param ranking1 First ranking to compare, ArrayList of models 
+     * @param ranking2 Second ranking to compare, ArrayList of models
+     * @param p between 0 and 1, the value for p in the Rank Biased Overlap calculation.
+     * @return Rank-Biased Overlap between the two rankings.
+     */
     public static double RBO(ArrayList<Model> ranking1, ArrayList<Model> ranking2, double p){        
                
+        // initialise temporary ArrayLists
         ArrayList<String> temp1 = new ArrayList<>();
         ArrayList<String> temp2 = new ArrayList<>();
         
         int i = 0;
         double RBO = 0.0;
-        double w_dSum = 0.0;
+        double totalWeight = 0.0;
         
         int maxDepth = Math.max(ranking1.size(), ranking2.size());
         
-        while (i < maxDepth) {// extend to look at smallest set of models
-            int d = i+1;
-            double w_d = (1-p)*Math.pow(p, d-1);
-            w_dSum += w_d;
+        //loop until both rankings are fully explored
+        while (i < maxDepth) { 
+            int depth = i+1;
+            
+            // calculate the weight associated with the current depth
+            double depthWeight = (1-p)*Math.pow(p, depth-1);
+            totalWeight += depthWeight;
+            
+            // for both rankings, check if new members exist at the current depth.
             for (int j = 0; j < ranking1.size(); j++){
-                if (ranking1.get(j).rank == d){
+                if (ranking1.get(j).rank == depth){
                     temp1.add(ranking1.get(j).name);
                 }
             }
             for (int j = 0; j < ranking2.size(); j++){
-                if (ranking2.get(j).rank == d){
+                if (ranking2.get(j).rank == depth){
                     temp2.add(ranking2.get(j).name);
                 }
             }
+            
+            // find the agreement between the two rankings at the current depth.
             double agreement = 2.0*intersection(temp1, temp2).size()/(temp1.size()+temp2.size());
-            RBO += w_d * agreement;
+            
+            // add the agreement multiplied by the weight of the current depth to the RBO value.
+            RBO += depthWeight * agreement;
             i++;
-
         }
         
 //        System.out.println("RBO: " + RBO);
 //        System.out.println("Sum of weights: " + w_dSum);
 //        System.out.println("Scaled RBO: " + RBO / w_dSum);
-        return RBO / w_dSum;
+        return RBO / totalWeight;
     }
     
     
+    /**
+     * @param list1 first list in the comparison
+     * @param list2 second list in the comparison
+     * @return list of elements existing in both input lists
+     */
     public static ArrayList<String> intersection(ArrayList<String> list1, ArrayList<String> list2){
         ArrayList<String> list = new ArrayList<>();
         for (String t : list1) {
