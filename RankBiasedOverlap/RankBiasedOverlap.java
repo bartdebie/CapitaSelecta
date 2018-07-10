@@ -14,16 +14,32 @@ import java.util.Collections;
  *
  * @author bmcdb
  *
- * the RankBiasedOverlap class can be used to calculate the Rank-Biased Overlap between different rankings.
+ * the RankBiasedOverlap class can be used to calculate the Rank-Biased Overlap between precision values from different metrics.
  *
  */
 public class RankBiasedOverlap {
     
     public static void main(String[] args) throws FileNotFoundException, IOException{
         
+        if (args.length != 2){
+            System.out.println("This jar file takes a csv file with metric results and a boolean as input arguments.");            
+            System.out.println("Please specify the full path to a results.csv file and a boolean value for the ranking style.");
+            System.out.println("The results.csv file should have one model+metric combination per line.");
+            System.out.println("Every line should first have the model name, then the metric name, then the precision value.");
+            System.out.println("Values should be comma-separated, for instance:");
+            System.out.println("Model nr 1,alignment-based precision,0.123");
+            System.out.println();
+            System.out.println("The second argument is either true or false, and determines the way ranking of models is handled");
+            System.out.println();
+            System.out.println("The output of the execution is a RBOValues.txt file containing a matrix of Rank-Biased Overlap values");
+            System.exit(0);
+        }
+        
         String Directory = "C:\\Users\\bmcdb\\Dropbox\\_Master algemeen\\17-18 Q4\\Capita selecta\\Logs and models\\Road traffic fine management80\\trace models\\";
+   
         String filename = "results trace models.csv";
-        BufferedReader br = new BufferedReader(new FileReader(Directory + filename));
+        filename = args[0];
+        BufferedReader br = new BufferedReader(new FileReader(filename));
         String line = "";
         String csvSplitBy = ",";
         
@@ -41,6 +57,7 @@ public class RankBiasedOverlap {
         }
         
         boolean bottomUpRanked = false; // determines whether ranking is optimistic or pessimistic
+        bottomUpRanked = Boolean.parseBoolean(args[1]);
         double p = 0.5;
         
         // sort models and add rankings
@@ -64,7 +81,7 @@ public class RankBiasedOverlap {
         
         DecimalFormat dm = new DecimalFormat("#.####");
         File file = new File("RBOvalues.txt");
-        BufferedWriter writer = new BufferedWriter(new FileWriter(Directory + file));
+        BufferedWriter writer = new BufferedWriter(new FileWriter(file));
         
         writer.write("RBOvalues\t");
         for (int i = 0; i < models.size(); i++){
@@ -84,6 +101,7 @@ public class RankBiasedOverlap {
         }
         
         writer.close();
+        System.out.println("Execution succesfully completed");
     }
     
     
