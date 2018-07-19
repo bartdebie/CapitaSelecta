@@ -76,12 +76,9 @@ public class RankBiasedOverlap {
             writer.newLine();
             writer.write(models.get(i).get(0).metric+"\t");
             for (int j =0; j<RBOvalues.length; j++){
-                if (i != j){
                 writer.write(dm.format(RBOvalues[i][j])+"\t");
-                } else {
-                    writer.write(" \t");
-                }            }
-
+                writer.write(" \t");
+            }
         }
         
         writer.close();
