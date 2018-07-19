@@ -1,6 +1,8 @@
 # CapitaSelecta
-This repo contains the .java files for calculating the scaled RBO value between different rankings.
-It also contains a RankBiasedOverlap.jar file which can be run from the command line.
+This repo contains the .java files for calculating the scaled RBO value between different rankings. It also contains the models and logs used in the project, and the precision values for the different metrics.
+
+
+RankBiasedOverlap.jar is a tool that can be run from the command line.
 The tool first creates a ranking of models for every metric based on the precision values and then calculates scaled RBO for every combination of metrics.
 
 
