@@ -1,0 +1,314 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<pnml>
+  <net type="http://www.yasper.org/specs/epnml-1.1" id="do36">
+    <name>
+      <text>Trace model</text>
+    </name>
+    <toolspecific tool="Yasper" version="1.2.4020.34351">
+      <roles xmlns="http://www.yasper.org/specs/epnml-1.1/toolspec" />
+    </toolspecific>
+    <place id="pl1">
+      <name>
+        <text>Start</text>
+      </name>
+      <graphics>
+        <position x="187" y="194" />
+        <dimension x="20" y="20" />
+      </graphics>
+      <initialMarking>
+        <text>1</text>
+      </initialMarking>
+    </place>
+    <place id="pl4">
+      <graphics>
+        <position x="329" y="109" />
+        <dimension x="20" y="20" />
+      </graphics>
+    </place>
+    <place id="pl5">
+      <graphics>
+        <position x="453" y="108" />
+        <dimension x="20" y="20" />
+      </graphics>
+    </place>
+    <place id="pl6">
+      <graphics>
+        <position x="333" y="169" />
+        <dimension x="20" y="20" />
+      </graphics>
+    </place>
+    <place id="pl7">
+      <graphics>
+        <position x="452" y="169" />
+        <dimension x="20" y="20" />
+      </graphics>
+    </place>
+    <place id="pl8">
+      <graphics>
+        <position x="332" y="224" />
+        <dimension x="20" y="20" />
+      </graphics>
+    </place>
+    <place id="pl10">
+      <graphics>
+        <position x="332" y="280" />
+        <dimension x="20" y="20" />
+      </graphics>
+    </place>
+    <place id="pl13">
+      <graphics>
+        <position x="584" y="108" />
+        <dimension x="20" y="20" />
+      </graphics>
+    </place>
+    <place id="pl16">
+      <graphics>
+        <position x="701" y="110" />
+        <dimension x="20" y="20" />
+      </graphics>
+    </place>
+    <place id="pl17">
+      <name>
+        <text>Finish</text>
+      </name>
+      <graphics>
+        <position x="852" y="193" />
+        <dimension x="20" y="20" />
+      </graphics>
+    </place>
+    <place id="pl18">
+      <graphics>
+        <position x="580" y="167" />
+        <dimension x="20" y="20" />
+      </graphics>
+    </place>
+    <place id="pl19">
+      <graphics>
+        <position x="697" y="168" />
+        <dimension x="20" y="20" />
+      </graphics>
+    </place>
+    <transition id="tr1">
+      <name>
+        <text>Create Fine</text>
+      </name>
+      <graphics>
+        <position x="268" y="110" />
+        <dimension x="32" y="32" />
+      </graphics>
+    </transition>
+    <transition id="tr2">
+      <name>
+        <text>Send Fine</text>
+      </name>
+      <graphics>
+        <position x="389" y="108" />
+        <dimension x="32" y="32" />
+      </graphics>
+    </transition>
+    <transition id="tr3">
+      <name>
+        <text>Create Fine</text>
+      </name>
+      <graphics>
+        <position x="268" y="170" />
+        <dimension x="32" y="32" />
+      </graphics>
+    </transition>
+    <transition id="tr4">
+      <name>
+        <text>Send Fine</text>
+      </name>
+      <graphics>
+        <position x="388" y="168" />
+        <dimension x="32" y="32" />
+      </graphics>
+    </transition>
+    <transition id="tr5">
+      <name>
+        <text>Create Fine</text>
+      </name>
+      <graphics>
+        <position x="267" y="225" />
+        <dimension x="32" y="32" />
+      </graphics>
+    </transition>
+    <transition id="tr6">
+      <name>
+        <text>Send Fine</text>
+      </name>
+      <graphics>
+        <position x="391" y="223" />
+        <dimension x="32" y="32" />
+      </graphics>
+    </transition>
+    <transition id="tr7">
+      <name>
+        <text>Create Fine</text>
+      </name>
+      <graphics>
+        <position x="267" y="280" />
+        <dimension x="32" y="32" />
+      </graphics>
+    </transition>
+    <transition id="tr8">
+      <name>
+        <text>Payment</text>
+      </name>
+      <graphics>
+        <position x="392" y="281" />
+        <dimension x="32" y="32" />
+      </graphics>
+    </transition>
+    <transition id="tr9">
+      <name>
+        <text>Insert Fine Notification</text>
+      </name>
+      <graphics>
+        <position x="517" y="108" />
+        <dimension x="32" y="32" />
+      </graphics>
+    </transition>
+    <transition id="tr10">
+      <name>
+        <text>Add penalty</text>
+      </name>
+      <graphics>
+        <position x="640" y="109" />
+        <dimension x="32" y="32" />
+      </graphics>
+    </transition>
+    <transition id="tr11">
+      <name>
+        <text>Payment</text>
+      </name>
+      <graphics>
+        <position x="765" y="110" />
+        <dimension x="32" y="32" />
+      </graphics>
+    </transition>
+    <transition id="tr12">
+      <name>
+        <text>Insert Fine Notification</text>
+      </name>
+      <graphics>
+        <position x="517" y="167" />
+        <dimension x="32" y="32" />
+      </graphics>
+    </transition>
+    <transition id="tr13">
+      <name>
+        <text>Add penalty</text>
+      </name>
+      <graphics>
+        <position x="640" y="168" />
+        <dimension x="32" y="32" />
+      </graphics>
+    </transition>
+    <transition id="tr14">
+      <name>
+        <text>Send for Credit Collection</text>
+      </name>
+      <graphics>
+        <position x="767" y="168" />
+        <dimension x="32" y="32" />
+      </graphics>
+    </transition>
+    <place id="pl2">
+      <graphics>
+        <position x="552" y="281" />
+        <dimension x="20" y="20" />
+      </graphics>
+      <type>
+        <text>store</text>
+      </type>
+    </place>
+    <transition id="tr15">
+      <graphics>
+        <position x="515" y="283" />
+        <dimension x="32" y="32" />
+      </graphics>
+    </transition>
+    <place id="pl3">
+      <graphics>
+        <position x="450" y="281" />
+        <dimension x="20" y="20" />
+      </graphics>
+    </place>
+    <transition id="tr16">
+      <graphics>
+        <position x="389" y="346" />
+        <dimension x="32" y="32" />
+      </graphics>
+    </transition>
+    <arc id="a1" source="pl1" target="tr1">
+      <graphics>
+        <position x="189" y="108" />
+      </graphics>
+    </arc>
+    <arc id="a2" source="pl4" target="tr2" />
+    <arc id="a3" source="tr2" target="pl5" />
+    <arc id="a4" source="tr1" target="pl4" />
+    <arc id="a5" source="pl1" target="tr3">
+      <graphics>
+        <position x="215" y="169" />
+      </graphics>
+    </arc>
+    <arc id="a6" source="pl6" target="tr4" />
+    <arc id="a7" source="tr4" target="pl7" />
+    <arc id="a8" source="tr3" target="pl6" />
+    <arc id="a9" source="pl1" target="tr5">
+      <graphics>
+        <position x="215" y="225" />
+      </graphics>
+    </arc>
+    <arc id="a10" source="pl8" target="tr6" />
+    <arc id="a11" source="tr5" target="pl8" />
+    <arc id="a12" source="pl1" target="tr7">
+      <graphics>
+        <position x="188" y="281" />
+      </graphics>
+    </arc>
+    <arc id="a13" source="pl10" target="tr8" />
+    <arc id="a14" source="tr7" target="pl10" />
+    <arc id="a15" source="tr9" target="pl13" />
+    <arc id="a16" source="pl5" target="tr9" />
+    <arc id="a17" source="pl13" target="tr10" />
+    <arc id="a18" source="pl16" target="tr11" />
+    <arc id="a19" source="tr11" target="pl17">
+      <graphics>
+        <position x="852" y="112" />
+      </graphics>
+    </arc>
+    <arc id="a20" source="tr10" target="pl16" />
+    <arc id="a21" source="tr12" target="pl18" />
+    <arc id="a22" source="pl18" target="tr13" />
+    <arc id="a23" source="pl19" target="tr14" />
+    <arc id="a24" source="tr13" target="pl19" />
+    <arc id="a25" source="pl7" target="tr12" />
+    <arc id="a26" source="tr14" target="pl17">
+      <graphics>
+        <position x="820" y="168" />
+      </graphics>
+    </arc>
+    <arc id="a27" source="tr6" target="pl17">
+      <graphics>
+        <position x="821" y="223" />
+      </graphics>
+    </arc>
+    <arc id="a28" source="tr15" target="pl2">
+      <type>
+        <text>R</text>
+      </type>
+    </arc>
+    <arc id="a57" source="tr8" target="pl3" />
+    <arc id="a58" source="pl3" target="tr16" />
+    <arc id="a59" source="tr16" target="pl10" />
+    <arc id="a60" source="pl3" target="tr15" />
+    <arc id="a61" source="tr15" target="pl17">
+      <graphics>
+        <position x="853" y="285" />
+      </graphics>
+    </arc>
+  </net>
+</pnml>

@@ -1,0 +1,72 @@
+trace.pnml,ground_truth,1
+trace_repeat_all.pnml,ground_truth,0.3
+trace_repeat_payment.pnml,ground_truth,0.7
+trace_repeat_T8.pnml,ground_truth,0.6
+trace_repeat_T35.pnml,ground_truth,0.5
+trace_visible_irregular.pnml,ground_truth,0.9
+trace_visible_regular.pnml,ground_truth,0.8
+trace_repeat_T42.pnml,ground_truth,0.4
+trace.pnml,Alignment Based Precision #1,1
+trace_repeat_all.pnml,Alignment Based Precision #1,1
+trace_repeat_payment.pnml,Alignment Based Precision #1,1
+trace_repeat_T8.pnml,Alignment Based Precision #1,1
+trace_repeat_T35.pnml,Alignment Based Precision #1,1
+trace_visible_irregular.pnml,Alignment Based Precision #1,0.964285714
+trace_visible_regular.pnml,Alignment Based Precision #1,0.928571429
+trace_repeat_T42.pnml,Alignment Based Precision #1,1
+trace.pnml,Anti Alignment Based Precision #1,0.9375
+trace_repeat_all.pnml,Anti Alignment Based Precision #1,0
+trace_repeat_payment.pnml,Anti Alignment Based Precision #1,0.9375
+trace_repeat_T8.pnml,Anti Alignment Based Precision #1,0.8375
+trace_repeat_T35.pnml,Anti Alignment Based Precision #1,0
+trace_visible_irregular.pnml,Anti Alignment Based Precision #1,0.7625
+trace_visible_regular.pnml,Anti Alignment Based Precision #1,0
+trace_repeat_T42.pnml,Anti Alignment Based Precision #1,0.8375
+trace.pnml,Best Align Precision #1,1
+trace_repeat_all.pnml,Best Align Precision #1,0.943906548
+trace_repeat_payment.pnml,Best Align Precision #1,0.969933458
+trace_repeat_T8.pnml,Best Align Precision #1,0.97722533
+trace_repeat_T35.pnml,Best Align Precision #1,0.98631446
+trace_visible_irregular.pnml,Best Align Precision #1,0.982629429
+trace_visible_regular.pnml,Best Align Precision #1,0.969267302
+trace_repeat_T42.pnml,Best Align Precision #1,0.972496782
+trace.pnml,ETC Conformance #1,0.377918006
+trace_repeat_all.pnml,ETC Conformance #1,0.525836692
+trace_repeat_payment.pnml,ETC Conformance #1,0.377918006
+trace_repeat_T8.pnml,ETC Conformance #1,0.476784319
+trace_repeat_T35.pnml,ETC Conformance #1,0.476784319
+trace_visible_irregular.pnml,ETC Conformance #1,0.359392836
+trace_visible_regular.pnml,ETC Conformance #1,0.377918006
+trace_repeat_T42.pnml,ETC Conformance #1,0.476784319
+trace.pnml,MAP,1
+trace_repeat_all.pnml,MAP,0.22580645
+trace_repeat_payment.pnml,MAP,0.5384615
+trace_repeat_T8.pnml,MAP,0.4375
+trace_repeat_T35.pnml,MAP,0.466666
+trace_visible_irregular.pnml,MAP,0.77777778
+trace_visible_regular.pnml,MAP,0.77777778
+trace_repeat_T42.pnml,MAP,0.4375
+trace.pnml,Negative Event Precision #1,1
+trace_repeat_all.pnml,Negative Event Precision #1,0.940815895
+trace_repeat_payment.pnml,Negative Event Precision #1,1
+trace_repeat_T8.pnml,Negative Event Precision #1,1
+trace_repeat_T35.pnml,Negative Event Precision #1,1
+trace_visible_irregular.pnml,Negative Event Precision #1,0.979461601
+trace_visible_regular.pnml,Negative Event Precision #1,0.857607622
+trace_repeat_T42.pnml,Negative Event Precision #1,1
+trace.pnml,One Align Precision #1,1
+trace_repeat_all.pnml,One Align Precision #1,0.894642361
+trace_repeat_payment.pnml,One Align Precision #1,0.951420478
+trace_repeat_T8.pnml,One Align Precision #1,0.989307648
+trace_repeat_T35.pnml,One Align Precision #1,0.953671113
+trace_visible_irregular.pnml,One Align Precision #1,0.989073998
+trace_visible_regular.pnml,One Align Precision #1,0.938491394
+trace_repeat_T42.pnml,One Align Precision #1,0.945229151
+trace.pnml,Projected Precision,0.9466667
+trace_repeat_all.pnml,Projected Precision,0.388789683
+trace_repeat_payment.pnml,Projected Precision,0.738052721
+trace_repeat_T8.pnml,Projected Precision,0.556867284
+trace_repeat_T35.pnml,Projected Precision,0.655059524
+trace_visible_irregular.pnml,Projected Precision,0.857142857
+trace_visible_regular.pnml,Projected Precision,0.849206349
+trace_repeat_T42.pnml,Projected Precision,0.543452381

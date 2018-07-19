@@ -1,0 +1,54 @@
+Custom.pnml,Ground_truth,1
+Custom_repeat_CF.pnml,Ground_truth,0.6
+Custom_repeat_IDAP.pnml,Ground_truth,0.7
+Custom_repeat_all.pnml,Ground_truth,0.5
+Custom_visible_irregular.pnml,Ground_truth,0.9
+Custom_visible_regular.pnml,Ground_truth,0.8
+Custom.pnml,MAP,0.030616541
+Custom_repeat_CF.pnml,MAP,0.030528399
+Custom_repeat_IDAP.pnml,MAP,0.028497844
+Custom_repeat_all.pnml,MAP,0.030486344
+Custom_visible_irregular.pnml,MAP,0.027752031
+Custom_visible_regular.pnml,MAP,0.030592619
+Custom.pnml,Projected,0.911523647
+Custom_repeat_CF.pnml,Projected,1
+Custom_repeat_IDAP.pnml,Projected,0.882435076
+Custom_repeat_all.pnml,Projected,0.570431804
+Custom_visible_irregular.pnml,Projected,0.915260472
+Custom_visible_regular.pnml,Projected,0.885124272
+Custom.pnml,Alignment Based Precision #1,0.616496116
+Custom_repeat_CF.pnml,Alignment Based Precision #1,0.556664978
+Custom_repeat_IDAP.pnml,Alignment Based Precision #1,0.607220534
+Custom_repeat_all.pnml,Alignment Based Precision #1,0.616496116
+Custom_visible_irregular.pnml,Alignment Based Precision #1,0.614251604
+Custom_visible_regular.pnml,Alignment Based Precision #1,0.585857818
+Custom.pnml,Anti Alignment Based Precision #1,0.312642394
+Custom_repeat_CF.pnml,Anti Alignment Based Precision #1,0.471589728
+Custom_repeat_IDAP.pnml,Anti Alignment Based Precision #1,0.456105505
+Custom_repeat_all.pnml,Anti Alignment Based Precision #1,0
+Custom_visible_irregular.pnml,Anti Alignment Based Precision #1,0.318314114
+Custom_visible_regular.pnml,Anti Alignment Based Precision #1,0.312267309
+Custom.pnml,Best Align Precision #1,0.713761079
+Custom_repeat_CF.pnml,Best Align Precision #1,0.696355652
+Custom_repeat_IDAP.pnml,Best Align Precision #1,0.712901894
+Custom_repeat_all.pnml,Best Align Precision #1,0.733641724
+Custom_visible_irregular.pnml,Best Align Precision #1,0.713237801
+Custom_visible_regular.pnml,Best Align Precision #1,0.698078042
+Custom.pnml,ETC Conformance #1,0.682495049
+Custom_repeat_CF.pnml,ETC Conformance #1,0
+Custom_repeat_IDAP.pnml,ETC Conformance #1,0.680809991
+Custom_repeat_all.pnml,ETC Conformance #1,0.664692538
+Custom_visible_irregular.pnml,ETC Conformance #1,0.679870923
+Custom_visible_regular.pnml,ETC Conformance #1,0.647795154
+Custom.pnml,Negative Event Precision #1,0.501183866
+Custom_repeat_CF.pnml,Negative Event Precision #1,0.450181344
+Custom_repeat_IDAP.pnml,Negative Event Precision #1,0.499967619
+Custom_repeat_all.pnml,Negative Event Precision #1,0.501183866
+Custom_visible_irregular.pnml,Negative Event Precision #1,0.500480583
+Custom_visible_regular.pnml,Negative Event Precision #1,0.476862806
+Custom.pnml,One Align Precision #1,0.671193693
+Custom_repeat_CF.pnml,One Align Precision #1,0.653968215
+Custom_repeat_IDAP.pnml,One Align Precision #1,0.670350837
+Custom_repeat_all.pnml,One Align Precision #1,0.670862169
+Custom_visible_irregular.pnml,One Align Precision #1,0.670706954
+Custom_visible_regular.pnml,One Align Precision #1,0.653968439
