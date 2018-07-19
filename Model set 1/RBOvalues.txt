@@ -1,10 +1,10 @@
 RBOvalues	ground_truth	Anti Alignment Based Precision #1	Alignment Based Precision #1	Best Align Precision #1	ETC Conformance #1	Markovian Abstraction Precision	Negative Event Precision #1	One Align Precision #1	Projected Precision	
-ground_truth	1	 	0.4218	 	0.1234	 	0.739	 	0.1254	 	0.907	 	0.1871	 	0.7566	 	0.9824	 	
-Anti Alignment Based Precision #1	0.4218	 	0.7222	 	0.1262	 	0.4338	 	0.197	 	0.4306	 	0.2085	 	0.4338	 	0.4043	 	
-Alignment Based Precision #1	0.1234	 	0.1262	 	0.1525	 	0.1344	 	0.1322	 	0.1154	 	0.1415	 	0.1344	 	0.1234	 	
-Best Align Precision #1	0.739	 	0.4338	 	0.1344	 	1	 	0.2362	 	0.7667	 	0.2157	 	0.8262	 	0.739	 	
-ETC Conformance #1	0.1254	 	0.197	 	0.1322	 	0.2362	 	1	 	0.1136	 	0.1776	 	0.2167	 	0.1254	 	
-Markovian Abstraction Precision	0.907	 	0.4306	 	0.1154	 	0.7667	 	0.1136	 	1	 	0.1802	 	0.7843	 	0.9246	 	
-Negative Event Precision #1	0.1871	 	0.2085	 	0.1415	 	0.2157	 	0.1776	 	0.1802	 	0.2404	 	0.2157	 	0.1871	 	
-One Align Precision #1	0.7566	 	0.4338	 	0.1344	 	0.8262	 	0.2167	 	0.7843	 	0.2157	 	1	 	0.7566	 	
-Projected Precision	0.9824	 	0.4043	 	0.1234	 	0.739	 	0.1254	 	0.9246	 	0.1871	 	0.7566	 	1	 	
+ground_truth	1	0.4218	0.1234	0.739	0.1254	0.907	0.1871	0.7566	0.9824	
+Anti Alignment Based Precision #1	0.4218	0.7222	0.1262	0.4338	0.197	0.4306	0.2085	0.4338	0.4043	
+Alignment Based Precision #1	0.1234	0.1262	0.1525	0.1344	0.1322	0.1154	0.1415	0.1344	0.1234	
+Best Align Precision #1	0.739	0.4338	0.1344	1	0.2362	0.7667	0.2157	0.8262	0.739	
+ETC Conformance #1	0.1254	0.197	0.1322	0.2362	1	0.1136	0.1776	0.2167	0.1254	
+Markovian Abstraction Precision	0.907	0.4306	0.1154	0.7667	0.1136	1	0.1802	0.7843	0.9246	
+Negative Event Precision #1	0.1871	0.2085	0.1415	0.2157	0.1776	0.1802	0.2404	0.2157	0.1871	
+One Align Precision #1	0.7566	0.4338	0.1344	0.8262	0.2167	0.7843	0.2157	1	0.7566	
+Projected Precision	0.9824	0.4043	0.1234	0.739	0.1254	0.9246	0.1871	0.7566	1	
