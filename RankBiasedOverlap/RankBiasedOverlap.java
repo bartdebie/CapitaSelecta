@@ -21,24 +21,12 @@ public class RankBiasedOverlap {
     
     public static void main(String[] args) throws FileNotFoundException, IOException{
         
-        if (args.length != 2){
-            System.out.println("This jar file takes a csv file with metric results and a boolean as input arguments.");            
-            System.out.println("Please specify the full path to a results.csv file and a boolean value for the ranking style.");
-            System.out.println("The results.csv file should have one model+metric combination per line.");
-            System.out.println("Every line should first have the model name, then the metric name, then the precision value.");
-            System.out.println("Values should be comma-separated, for instance:");
-            System.out.println("Model nr 1,alignment-based precision,0.123");
-            System.out.println();
-            System.out.println("The second argument is either true or false, and determines the way ranking of models is handled");
-            System.out.println();
-            System.out.println("The output of the execution is a RBOValues.txt file containing a matrix of Rank-Biased Overlap values");
+        if (args.length != 3){
+            System.out.println("Improper usage, check the Readme file on https://github.com/bartdebie/CapitaSelecta to see how to use this tool.");
             System.exit(0);
         }
         
-        String Directory = "C:\\Users\\bmcdb\\Dropbox\\_Master algemeen\\17-18 Q4\\Capita selecta\\Logs and models\\Road traffic fine management80\\trace models\\";
-   
-        String filename = "results trace models.csv";
-        filename = args[0];
+        String filename = args[0];
         BufferedReader br = new BufferedReader(new FileReader(filename));
         String line = "";
         String csvSplitBy = ",";
@@ -55,21 +43,17 @@ public class RankBiasedOverlap {
             }
             models.get(metricNr).add(new Model(model[0], model[1], Double.parseDouble(model[2])));
         }
-        
-        boolean bottomUpRanked = false; // determines whether ranking is optimistic or pessimistic
-        bottomUpRanked = Boolean.parseBoolean(args[1]);
-        double p = 0.5;
+       
+        boolean bottomUpRanked = Boolean.parseBoolean(args[1]); // determines whether ranking is optimistic or pessimistic
+        double p = Double.parseDouble(args[2]);
         
         // sort models and add rankings
         for (ArrayList<Model> modelList: models){
             Collections.sort(modelList);
             RankModels(modelList, bottomUpRanked);
-//            for (Model m: modelList){
-//                m.printModel();
-//            }
         }
         
-        // do RBO for every combination
+        // do RBO for every combination of metrics
         double[][] RBOvalues = new double[models.size()][models.size()];
         for (int i = 0; i < models.size(); i++){
             ArrayList<Model> metric1 = models.get(i);
