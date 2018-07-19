@@ -139,9 +139,6 @@ public class RankBiasedOverlap {
             i++;
         }
         
-//        System.out.println("RBO: " + RBO);
-//        System.out.println("Sum of weights: " + w_dSum);
-//        System.out.println("Scaled RBO: " + RBO / w_dSum);
     return RBO / totalWeight;
     }
     
